@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="js/Chart.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <title>Chart</title>
+  </head>
+  <body>
+  <h1 style="margin-left:19px;">俊达网杀面杀综合能力指数</h1>
+    <canvas id="canvas" width="400" height="400"></canvas>
+    
+    
+    <script type="text/javascript">
+   $( 
+     function(){
+    	 //数据结构1
+     	 var data = {
+    				labels : ["守护指数","平民指数","预言家指数","狼指数","猎人指数","白狼指数","女巫指数"],
+    				datasets : [
+    					{
+    						fillColor : "rgba(220,220,220,0.5)",  //充填颜色
+    						strokeColor : "rgba(220,220,220,1)",  //边框颜色
+    						pointColor : "rgba(220,220,220,1)",  //数据点颜色
+    						pointStrokeColor : "#fff",  //数据点边框颜色
+    						data : [65,59,90,81,56,55,40]  //数据
+    					},
+    					{
+    						fillColor : "rgba(151,187,205,0.5)",
+    						strokeColor : "rgba(151,187,205,1)",
+    						pointColor : "rgba(151,187,205,1)",
+    						pointStrokeColor : "#fff",
+    						data : [28,48,40,19,96,27,100]
+    					}
+    				]
+    			}; 
+     	 
+     	 //数据结构2
+    			/* var data = [
+    			        	{
+    			        		value : 90,
+    			        		color: "#D97041"
+    			        	},
+    			        	{
+    			        		value : 90,
+    			        		color: "#C7604C"
+    			        	},
+    			        	{
+    			        		value : 90,
+    			        		color: "#21323D"
+    			        	},
+    			        	{
+    			        		value : 90,
+    			        		color: "#9D9B7F"
+    			        	},
+    			        	{
+    			        		value : 90,
+    			        		color: "#7D4F6D"
+    			        	},
+    			        	{
+    			        		value : 90,
+    			        		color: "#584A5E"
+    			        	}
+    			        ]; */
+    	 options = {
+ 				
+    			    scaleOverlay : false,
+    			    //是否用硬编码重写y轴网格线
+    				scaleOverride : true,  			
+    				//Number - y轴刻度的个数
+    				scaleSteps : 5,
+    				//Number - y轴每个刻度的宽度
+    				scaleStepWidth : 20,
+    				//Number - //y轴的起始值
+    				scaleStartValue : 20,
+          
+    				//String - 尺度线颜色
+    				scaleLineColor : "rgba(0,0,0,.1)",
+    				
+    				//Number - 尺度线的像素宽度	
+    				scaleLineWidth : 1,
+
+    				//Boolean - 是否在y轴 显示标签
+    				scaleShowLabels : true,
+    				
+    				//Interpolated JS string - 设置y轴单位和数值比例
+    				scaleLabel : "<%=value%>",
+    				
+    				//String - 坐标值字体
+    				scaleFontFamily : "'Arial'",
+    				
+    				//Number - 坐标值字体大小
+    				scaleFontSize : 12,
+    				
+    				//String - 坐标值字体是否加重weight	
+    				scaleFontStyle : "normal",
+    				
+    				//String - 字体颜色
+    				scaleFontColor : "#666",	
+    				
+    				///Boolean - 网格线是否显示在图表中
+    				scaleShowGridLines : true,
+    				
+    				//String - 网格线颜色
+    				scaleGridLineColor : "rgba(0,0,0,.05)",
+    				
+    				//Number - 网格线宽度
+    				scaleGridLineWidth : 1,	
+
+    				//Boolean - If there is a stroke on each bar	
+    				barShowStroke : true,
+    				
+    				//Number - Pixel width of the bar stroke	
+    				barStrokeWidth : 2,
+    				
+    				//Number - Spacing between each of the X value sets
+    				barValueSpacing : 5,
+    				
+    				//Number - Spacing between data sets within X values
+    				barDatasetSpacing : 1,
+    				
+    				//Boolean - Whether to animate the chart
+    				animation : true,
+
+    				//Number - Number of animation steps
+    				animationSteps : 60,
+    				
+    				//String - Animation easing effect
+    				animationEasing : "easeOutQuart",
+               
+    				//Function - Fires when the animation is complete
+    				onAnimationComplete : null
+    			/* 	pointDot : true,        //是否显示点
+    				pointDotRadius : 5,     //点的半径
+    				pointDotStrokeWidth : 1,//点的线宽
+    	            datasetStrokeWidth : 3, //数据线的线宽
+    				 */
+    			};
+    	 var ctx = document.getElementById("canvas").getContext("2d");
+         var myNewChart = new Chart(ctx);
+         new Chart(ctx).Line(data,options);} //Line曲线图   Bar柱状图  Radar雷达图或蛛网图   PolarArea极地区域图（数据结构2） Pie饼状图（数据结构2） Doughnut环形图（数据结构2）
+   );
+    
+    </script>
+  </body>
+</html>
